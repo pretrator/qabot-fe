@@ -1,6 +1,3 @@
-// File: pages/_app.js
-"use client"; // Mark this component as a client component
-
 import withRedux from 'next-redux-wrapper';
 import React from 'react';
 import store from '@Src/store';
@@ -10,7 +7,7 @@ import { Provider, useSelector } from 'react-redux';
 
 const FileGPT = ({ Component, pageProps }: AppProps) => {
     return <Provider store={store}>
-                <Component {...pageProps} a={23}/>;
+                <Component {...pageProps}/>
             </Provider>
 };
 

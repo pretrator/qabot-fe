@@ -1,33 +1,24 @@
-"use client";
 import { useState, useEffect } from 'react';
+import "@Src/app/globals.css"
+import { useDispatch } from 'react-redux';
+import { fetchConversations } from '@Actions/conversation';
 import LeftPane from '@Comp/leftPane';
 import RightPane from '@Comp/rightPane';
-import "@Src/app/globals.css"
-import { axios } from '@Src/utils';
-import { FETCH_CONVO } from '@Src/urls';
-import { useDispatch } from 'react-redux';
-import { SET_CONVERSATIONS } from '@Src/actionsType';
 
-export default function Home(props) {
-  console.log("HOME PROPS", props)
-  const [currentConv, setCurrConv] = useState();
-  const [allconvList, setAllConv] = useState([]);
+export default function Home() {
+  const [currentConv, setCurrConv] = useState<string | undefined>();
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios.get(FETCH_CONVO)
-      .then((res) => {
-        dispatch({ type: SET_CONVERSATIONS, data: res.data })
-        setAllConv(res.data);
-      })
+    fetchConversations(dispatch)
   }, [])
-  
-  
 
+  const convHook = { currentConv, setCurrConv }
+  
   return (
     <main className="flex min-h-screen flex-row">
-      <LeftPane setCurrConv={setCurrConv} allconvList={allconvList} currentConv={currentConv}/>
-      <RightPane currentConv={currentConv}/>
+      <LeftPane {...convHook}/>
+      <RightPane {...convHook}/>
     </main>
   );
 }

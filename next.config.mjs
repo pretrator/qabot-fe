@@ -11,6 +11,9 @@ const nextConfig = {
       "rc-tree",
       "rc-table",
     ],
+    env: {
+         BACKEND_URL: 'http://localhost:3001'
+    },
   };
   
   export default nextConfig;
