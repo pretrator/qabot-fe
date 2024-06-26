@@ -1,4 +1,5 @@
 
+import { removeFileExtension } from '@Src/utils';
 import { Typography } from 'antd';
 import lodash from 'lodash';
 import { Dispatch, SetStateAction } from 'react';
@@ -31,9 +32,10 @@ const LeftPane = (props: LeftPaneProps) => {
             <div className='mt-[10px] pb-2 pt-3 px-2 text-xs font-semibold text-ellipsis overflow-hidden break-all text-token-text-secondary text-gray-500'> Available Files</div>
         <div>
         {convList.map((conv: any) => {
+            const fileName = removeFileExtension(conv.fileName)
             const className = 'flex justify-start items-center text-gray-400 pl-[7px] hover:bg-slate-300 hover:text-white h-[40px] text-xm ' + (currentConv === conv.conversationId ? 'bg-white' : '')
             return <div onClick={() => setCurrConv(conv.conversationId)} className={className} key={conv.conversationId}>
-                      <Text ellipsis>{lodash.capitalize(conv.fileName)}</Text>
+                      <Text ellipsis>{lodash.capitalize(fileName)}</Text>
             </div>
         })}
         </div>

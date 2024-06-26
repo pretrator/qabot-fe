@@ -6,6 +6,7 @@ import { FILE_UPLOAD_URL, attchBackendURL } from '@Src/urls'
 import { UploadChangeParam } from 'antd/es/upload';
 import { useDispatch } from 'react-redux';
 import { fetchConversations } from '@Actions/conversation';
+import { ACCEPTED_FILE } from '@Src/constants';
 
 const { Dragger } = Upload;
 
@@ -29,6 +30,7 @@ const FileUploader = (props: FileUploaderProps) => {
 
     const uploadProps: UploadProps = {
         name: 'file',
+        accept: ACCEPTED_FILE,
         multiple: false,
         action: attchBackendURL(FILE_UPLOAD_URL),
         maxCount: 1,
