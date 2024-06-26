@@ -1,3 +1,5 @@
+import { BACKEND_URL } from './settings';
+
 const nextConfig = {
     reactStrictMode: false,
     transpilePackages: [
@@ -12,7 +14,7 @@ const nextConfig = {
       "rc-table",
     ],
     env: {
-         BACKEND_URL: 'http://localhost:3001'
+         BACKEND_URL,
     },
   };
   
