@@ -1,4 +1,4 @@
-import { BACKEND_URL } from './settings';
+import { BACKEND_URL } from './settings.mjs';
 
 const nextConfig = {
     reactStrictMode: false,
