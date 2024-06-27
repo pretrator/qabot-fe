@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Affix, Input } from "antd"
+import { Affix, Input, message } from "antd"
+import { DEFAULT_MESSAGE_WAIT_TIME, NO_TEXT } from '@Src/constants';
 
 interface QueryPaneProps {
     onQuery: (question: string) => void
@@ -11,8 +12,12 @@ const QueryPane = (props: QueryPaneProps) => {
     const [inputText, setInputText] = useState('');
 
     const onSubmit = () => {
-        onQuery(inputText)
-        setInputText("")
+        if(inputText.length > 0) {
+            onQuery(inputText)
+            setInputText("")
+        } else {
+            message.warning(NO_TEXT, DEFAULT_MESSAGE_WAIT_TIME)
+        }
     }
 
     const Upload = <div className="bg-blue-200 rounded-full" onClick={onSubmit}>
