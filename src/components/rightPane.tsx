@@ -9,7 +9,7 @@ import Answer from '@Comp/answers'
 import { Dispatch } from 'redux';
 import { useState } from 'react';
 import { message } from 'antd';
-import { DEFAULT_MESSAGE_WAIT_TIME, FAILED_UPLOADING_FILE, HTTP_ERROR, NO_BODY_IN_RESPONSE } from '@Src/constants';
+import { DEFAULT_MESSAGE_WAIT_TIME, FAILED_QUERY_EXECUTION, HTTP_ERROR, NO_BODY_IN_RESPONSE } from '@Src/constants';
 import TopBar from './topBar';
 
 const RightPane = (props: any) => {
@@ -79,7 +79,7 @@ const generateGPTResponseHandler = (dispatch: Dispatch, currentConv: string | nu
       }
     } catch (error) {
       console.error('Fetch error:', error);
-      message.error(FAILED_UPLOADING_FILE, DEFAULT_MESSAGE_WAIT_TIME);
+      message.error(FAILED_QUERY_EXECUTION, DEFAULT_MESSAGE_WAIT_TIME);
       setLoading(false)
     }
   }
