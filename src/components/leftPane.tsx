@@ -2,7 +2,6 @@
 import { removeFileExtension } from '@Src/utils';
 import { Typography } from 'antd';
 import lodash from 'lodash';
-import { Dispatch, SetStateAction } from 'react';
 import { useSelector } from 'react-redux';
 
 interface LeftPaneProps {
@@ -21,7 +20,7 @@ const LeftPane = (props: LeftPaneProps) => {
     const conversations: convListType[] = useSelector((state: any) => state.conversations);
     const convList = lodash.values(conversations);
 
-    return <div className="flex flex-col bg-[#EDF2F6] f-full w-[260px]">
+    return <div className="flex hidden sm:block flex-col bg-[#EDF2F6] f-full w-[260px]">
             <div className="flex items-center h-[40px] text-black ">
                 <img src="https://app.regie.ai/favicon.png" alt="Regie Logo" className="h-[25px] ml-[7px] mr-[5px] text-sm text-token-text-primary"/>
                 Regie

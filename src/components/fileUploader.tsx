@@ -6,7 +6,7 @@ import { FILE_UPLOAD_URL, attchBackendURL } from '@Src/urls'
 import { UploadChangeParam } from 'antd/es/upload';
 import { useDispatch } from 'react-redux';
 import { fetchConversations } from '@Actions/conversation';
-import { ACCEPTED_FILE } from '@Src/constants';
+import { ACCEPTED_FILE, FILE_UPLOAD_FAILED } from '@Src/constants';
 
 const { Dragger } = Upload;
 
@@ -24,7 +24,7 @@ const FileUploader = (props: FileUploaderProps) => {
             fetchConversations(dispatch)
                 .then(() => setCurrConv(response.conversationId))
         } else if (status === 'error') {
-            message.error(`${info.file.name} file upload failed.`);
+            message.error(`${info.file.name} ${FILE_UPLOAD_FAILED}`);
         }
     }
 

@@ -10,6 +10,7 @@ import { Dispatch } from 'redux';
 import { useState } from 'react';
 import { message } from 'antd';
 import { DEFAULT_MESSAGE_WAIT_TIME, FAILED_UPLOADING_FILE, HTTP_ERROR, NO_BODY_IN_RESPONSE } from '@Src/constants';
+import TopBar from './topBar';
 
 const RightPane = (props: any) => {
     const { currentConv, setCurrConv } = props;
@@ -20,11 +21,12 @@ const RightPane = (props: any) => {
     const gptResponseHandler = generateGPTResponseHandler(dispatch, currentConv, setLoading)
 
     return <div className="flex max-h-full max-w-full flex-1 flex-col overflow-hidden bg-white justify-center items-center">
+        <TopBar/>
         { lodash.isUndefined(currentConv) ? 
             <div className='h-[30rem] w-[48rem]'>
                 <FileUploader setCurrConv={setCurrConv}/> 
             </div>
-            : <div className='relative mx-auto flex flex-1 gap-3 text-base juice:gap-4 juice:md:gap-5 juice:lg:gap-6 md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem] pt-[56px] text-black w-full'>
+            : <div className='relative mx-auto flex flex-1 gap-3 text-base md:max-w-3xl lg:max-w-[40rem] xl:max-w-[48rem] pt-[56px] text-black w-full'>
                 <div className='flex flex-col w-full h-full'>
                     <Questions question={question}/>
                     <Answer answer={answer}/>

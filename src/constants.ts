@@ -1,6 +1,7 @@
 export const FAILED_UPLOADING_FILE = "Failed to upload file"
 export const DEFAULT_MESSAGE_WAIT_TIME = 3
 export const ACCEPTED_FILE = ".pdf"
+export const FILE_UPLOAD_FAILED = "file upload failed."
 
 
 
