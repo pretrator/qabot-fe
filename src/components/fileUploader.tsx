@@ -40,7 +40,7 @@ const FileUploader = (props: FileUploaderProps) => {
   return <Dragger {...uploadProps}>
     <p className="ant-upload-drag-icon"><PlusOutlined /></p>
     <p className="ant-upload-text">Click or drag file to this area to start asking question</p>
-    <p className="ant-upload-hint">Only Pdf Files are allowed. May crash for files with size greater than 100 MB.</p>
+    <p className="ant-upload-hint">Only Pdf Files are allowed.</p>
   </Dragger>
 }
 
